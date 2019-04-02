@@ -1,0 +1,50 @@
+          mov     cx,       1                  ; set count register to 1. 
+
+foobar    mov     ax,       cx                 ; move the counter into ax.
+          mov     bx,       0xf                ; move 15 into bx. 
+          div     bx                           ; divide ax by bx. 
+          cmp     dx,       0x0                ; is the remainder 0?
+          jnz     bar                          ; if not, jump to bar.
+          mov     rax,      0x2000004          ; write
+          mov     rdi,      0x1                ; stdout
+          mov     rsi,      foo   
+          mov     rdx,      0x6
+          syscall
+          jmp     increment                    ; jump to the end of the loop.
+
+bar       mov     ax,       cx                 ; move the counter into ax.
+          mov     bx,       0x5                ; move 5 into bx.
+          div     bx                           ; divide ax by bx.
+          cmp     dx,       0x0                ; is the remainder 0?
+          jnz     foo                          ; if not, jump to foo.
+          mov     rax,      0x2000004          ; write
+          mov     rdi,      0x1                ; stdout
+          mov     rsi,      bar
+          mov     rdx,      0x3
+          syscall
+          jmp     increment                    ; jump to the end of the loop.
+
+foo       mov     ax,       cx                 ; move the counter into ax.
+          mov     bx,       0x3                ; move 3 into bx.
+          div     bx                           ; divide ax by bx.
+          cmp     dx,       0x0                ; is the remainder 0?
+          jnz     else                         ; if not, jump to else.
+          mov     rax,      0x2000004          ; write
+          mov     rdi,      0x1                ; stdout
+          mov     rsi,      foo   
+          mov     rdx,      0x3
+          syscall
+          jmp     increment                    ; jump to the end of the loop.
+
+else      mov     ax,       cx                 ; print a number.
+          push    ax                           
+          push    dword     format
+          call    printf
+                           
+increment inc     cx                           ; increment cx.
+          cmp     cx,       0x64               ; compare cx to 100.
+          jle     foobar                       ; jump if less than or equal.
+
+.data                      
+          foo     db        "foo"
+          bar     db        "bar"
