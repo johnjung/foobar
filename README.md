@@ -363,7 +363,7 @@ increment inc     cx                  ; increment cx.
 Here are some registers from the code above:
 
 | Register | Name | Notes |
-|----------|------|-------|
+||||
 | AX | **primary accumulator** | Stores our number from 1 to 100 when we want to divide it by 3, 5 or 15. |
 |----------|------|-------|
 | BX | **base register** | Stores the divisor, e.g., 3, 5, or 15. |
