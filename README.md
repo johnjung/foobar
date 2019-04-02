@@ -1,4 +1,6 @@
 # foobar
+v. 0.0.1
+
 Just for fun...
 
 ## Problem
@@ -362,12 +364,9 @@ increment inc     cx                  ; increment cx.
 
 Here are some registers from the code above:
 
-| Register | Name | Notes |
-||||
-| AX | **primary accumulator** | Stores our number from 1 to 100 when we want to divide it by 3, 5 or 15. |
-|----------|------|-------|
-| BX | **base register** | Stores the divisor, e.g., 3, 5, or 15. |
-|----------|------|-------|
-| CX | **count register** | Store the count itself, from 1 to 100. |
-|----------|------|-------|
-| DX | **data register** | Used for the comparison function, to check to see if the remainder is 0. |
+Register | Name | Notes
+--- | :--- | :---
+`ax` | **primary accumulator** | Stores our number from 1 to 100 when we want to divide it by 3, 5 or 15.
+`bx` | **base register** | Stores the divisor, e.g., 3, 5, or 15.
+`cx` | **count register** | Store the count itself, from 1 to 100.
+`dx` | **data register** | Used for the comparison function, to check to see if the remainder is 0.
