@@ -370,3 +370,7 @@ Register | Name | Notes
 `bx` | **base register** | Stores the divisor, e.g., 3, 5, or 15.
 `cx` | **count register** | Store the count itself, from 1 to 100.
 `dx` | **data register** | Used for the comparison function, to check to see if the remainder is 0.
+
+## TODO
+
+Actually get it to run...
